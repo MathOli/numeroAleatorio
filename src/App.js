@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
-function App() {
+import Buttom from './components/Buttom';
+
+
+const App = () => {
+
+  const [value, setValue] = useState(0);
+
+  const randomNumber = () => {
+    setValue(Math.floor((Math.random() * 100) + 1));
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Gerador de numero aleatorio(1 a 100)</h1>
+      <Buttom name="Gerar" onClick = {randomNumber}/>
+      <p>Resultado <strong>{value}</strong></p>
+    </>
   );
 }
 
